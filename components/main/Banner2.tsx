@@ -6,7 +6,7 @@ import CarouselNumberIndicator from "./CarouselNumberIndicator";
 const Banner2 = () => {
   return (
     <div className="relative max-w-screen-8xl w-full mx-auto lg:h-[50vw] max-h-[40rem] h-[clamp(20rem,50vw,40rem)] text-white grid lg:grid-cols-[24px,1fr,24px] grid-cols-[24px,1fr] px-4">
-      <Image src="/Banner2.webp" alt="Car" fill className="-z-10" />
+      <Image src="/Banner2.webp" alt="Car" fill className="-z-10" priority />
       <OverlayGradient displayIndex={2} />
       <CarouselNumberIndicator currentIndex={2} />
       <div className="lg:px-[80px] px-[20px] md:px-[40px] lg:pt-[120px] pt-[30px] flex flex-col lg:gap-y-8 gap-y-4">

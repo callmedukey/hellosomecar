@@ -1,17 +1,20 @@
+import Cushion from "@/components/layout/Cushion";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 const dataList = [
   {
     title: "안전 전검 시스템",
     image: "/first-car.webp",
-    icon: "/manucatuer.webp",
+    icon: "/data-3.png",
     description:
       "품질과 안정성을 갖춘 <br /> 자체 안전점검 시스템을 통해 <br /> 고객맞춤 서비스 제공!",
   },
   {
     title: "15년차 전문 경력",
     image: "/second-car.webp",
-    icon: "/operation.webp",
+    icon: "/data-2.png",
 
     description:
       "개인 회생, 신용불량, 파산 등 <br /> 다양한 상황의 고객분들 <br /> 저신용 중고차 40,000건 달성!",
@@ -19,7 +22,7 @@ const dataList = [
   {
     title: "빠른 승인절차",
     image: "/third-car.webp",
-    icon: "/fullfillment.webp",
+    icon: "/data-1.png",
     description:
       "20개 이상의 협력 금융사 및 <br /> 전문화된 전산화 시스템을 통해 <br /> 신용조회 및 승인가지 1시간 내에 가능",
   },
@@ -64,7 +67,7 @@ const AboutPage = () => {
       <div className="mt-[8.75rem] h-[8.75rem] bg-primary text-white text-size-3xl font-bold leading-[100%] flex items-center justify-center">
         HELLO썸카
       </div>
-      <section className="pt-[7.5rem] pb-[3rem]">
+      <section className="pt-[7.5rem]">
         <div>
           <h2 className="text-size-2xl font-bold leading-[130%] text-center">
             헬로썸카를 <span className="text-primary">선택해야하는 이유??</span>
@@ -74,35 +77,75 @@ const AboutPage = () => {
         <p className="mt-8 text-center text-size-lg font-medium leading-[150%]">
           15년의 수많은 저신용중고차 <br /> 할부성공 사례로 전문성이 있는 업체
         </p>
-      </section>
-      <dl className="flex mx-auto pb-20 relative items-center justify-center">
-        <div className="h-6 w-full bg-primary absolute " />
-        {dataList.map((data) => (
-          <div
-            key={data.title}
-            className="relative w-[30.5rem] h-[17.5rem] mx-[-1rem] polygon"
-          >
-            <Image
-              quality={100}
-              src={data.image}
-              alt={data.title}
-              fill
-              className="object-cover -z-10"
-            />
-            <div className="bg-black/50 absolute inset-0 -z-10" />
-            <div className="flex flex-col items-center justify-center z-20 text-white h-full text-center">
-              <Image src={data.icon} alt={data.title} width={64} height={64} />
-              <dt className="text-size-lg font-bold leading-[100%]">
-                {data.title}
-              </dt>
-              <dd
-                className="text-base leading-[150%] font-medium mt-5"
-                dangerouslySetInnerHTML={{ __html: data.description }}
-              ></dd>
+        <dl className="flex mx-auto pb-20 relative items-center justify-center flex-wrap gap-y-8 mt-12">
+          <div className="h-6 w-full bg-primary absolute hidden sm:block " />
+          {dataList.map((data, i) => (
+            <div
+              key={data.title}
+              className="relative w-[30.5rem] h-[17.5rem] mx-[-1rem] sm:polygon"
+            >
+              <Image
+                quality={100}
+                src={data.image}
+                alt={data.title}
+                fill
+                className="object-cover -z-10"
+              />
+              <div className="bg-black/50 absolute inset-0 -z-10" />
+              <div className="flex flex-col items-center justify-center z-20 text-white h-full text-center">
+                <div className="rounded-full flex items-center justify-center size-[6rem] relative mb-5">
+                  <div className="absolute inset-0 rounded-full bg-secondary-gray/40" />
+                  <Image
+                    src={data.icon}
+                    alt={data.title}
+                    height={64}
+                    width={64}
+                    className={cn(
+                      data.icon === "/data-3.png" && "scale-90",
+                      "relative"
+                    )}
+                  />
+                </div>
+                <dt className="text-size-lg font-bold leading-[100%]">
+                  {data.title}
+                </dt>
+                <dd
+                  className="text-base leading-[150%] font-medium mt-5"
+                  dangerouslySetInnerHTML={{ __html: data.description }}
+                ></dd>
+              </div>
             </div>
-          </div>
-        ))}
-      </dl>
+          ))}
+        </dl>
+      </section>
+      <section className="mt-[7.5rem] relative w-full min-h-[27.5rem] flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/50 w-full h-full z-10" />
+        <Image
+          src="/about-last-car.webp"
+          alt="Just another car"
+          fill
+          className="object-cover object-center"
+        />
+        <article className="z-30">
+          <p className="text-center about-normal-text text-white px-4 break-keep tracking-normal">
+            전문적인 노하우로 최저금리와 최고한도의 원하시는 차량을 신속정확하게{" "}
+            <br />
+            <span className="about-important-text">헬로썸카의 전문 시스템</span>
+            이 있다면 가능합니다. <br />
+            <span className="about-important-text">
+              헬로썸카가 최저가 차량 견적부터 출고
+            </span>{" "}
+            까지 책임지겠습니다!
+          </p>
+          <Link
+            href="/contact"
+            className="carousel-link mx-auto mt-12 sm:max-w-[30rem] max-w-[18rem] w-full text-lg h-12"
+          >
+            상담 신청 하기
+          </Link>
+        </article>
+      </section>
+      <Cushion />
     </main>
   );
 };

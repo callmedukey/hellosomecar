@@ -126,7 +126,6 @@
     @apply bg-white/20 border-white border text-white w-[12.5rem] h-[3rem] flex items-center justify-center hover:bg-white/40 duration-300 transition-colors font-bold leading-[1rem];
   }
 
-  
   .card-container {
     @apply w-[320px] h-[440px] mx-auto bg-white rounded-lg overflow-hidden border border-tertiary-gray;
   }
@@ -152,9 +151,8 @@
   }
 
   .main-review-title {
-    @apply text-size-2xl font-bold leading-[130%]
+    @apply text-size-2xl font-bold leading-[130%];
   }
-
 
   .fixed-banner-text {
     @apply lg:text-size-lg font-bold text-lg;
@@ -166,5 +164,13 @@
 
   .polygon {
     clip-path: polygon(12% 0, 100% 0%, 88% 100%, 0% 100%);
+  }
+
+  .about-important-text {
+    @apply text-xl sm:text-size-lg font-bold leading-[150%];
+  }
+
+  .about-normal-text {
+    @apply sm:text-size-lg text-lg font-medium leading-[130%];
   }
 }
