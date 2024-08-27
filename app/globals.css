@@ -33,6 +33,7 @@
     --text-size-lg: 1.75rem;
     --text-size-xl: 2.5rem;
     --text-size-2xl: 3.5rem;
+    --text-size-3xl: 4rem;
 
     --primary-gray: 0 0 53%;
     --secondary-gray: 0 0 70%;
@@ -86,12 +87,20 @@
     font-size: var(--text-size-2xl);
   }
 
+  .text-size-3xl {
+    font-size: var(--text-size-3xl);
+  }
+
   .gradient-overlay {
     background: linear-gradient(
       90deg,
       rgba(0, 0, 0, 0.7) 0.48%,
       rgba(0, 0, 0, 0) 100%
     );
+  }
+
+  .max-screen-setting {
+    @apply max-w-screen-8xl mx-auto w-full;
   }
   .mobile-gradient-overlay {
     @apply bg-black/60;
@@ -144,5 +153,18 @@
 
   .main-review-title {
     @apply text-size-2xl font-bold leading-[130%]
+  }
+
+
+  .fixed-banner-text {
+    @apply lg:text-size-lg font-bold text-lg;
+  }
+
+  .about-top-text {
+    @apply text-lg font-medium leading-[150%] opacity-80;
+  }
+
+  .polygon {
+    clip-path: polygon(12% 0, 100% 0%, 88% 100%, 0% 100%);
   }
 }

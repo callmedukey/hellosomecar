@@ -3,6 +3,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import localFont from "next/font/local";
 import Header from "@/components/layout/Header";
+import FixedBanner from "@/components/layout/FixedBanner";
 
 const myFont = localFont({
   src: "./fonts/PretendardVariable.woff2",
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <FixedBanner />
       </body>
     </html>
   );

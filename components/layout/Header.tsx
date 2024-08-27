@@ -48,31 +48,31 @@ const Header = () => {
           )}
         >
           <a
-            href="#"
+            href="/about"
             className="hover:text-primary hover:font-bold duration-300 transition-all"
           >
             회사 소개
           </a>
           <a
-            href="#"
+            href="/best"
             className="hover:text-primary hover:font-bold duration-300 transition-all"
           >
             베스트 차량
           </a>
           <a
-            href="#"
+            href="/process"
             className="hover:text-primary hover:font-bold duration-300 transition-all"
           >
             진행절차
           </a>
           <a
-            href="#"
+            href="/review"
             className="hover:text-primary hover:font-bold duration-300 transition-all"
           >
             구매후기
           </a>
           <a
-            href="#"
+            href="/contact"
             className="hover:text-primary hover:font-bold duration-300 transition-all"
           >
             문의하기
