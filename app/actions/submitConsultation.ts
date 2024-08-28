@@ -1,8 +1,7 @@
-'use server';
+"use server";
 
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export async function submitConsultation(data: {
   name: string;
@@ -19,9 +18,10 @@ export async function submitConsultation(data: {
         purchaseMethod: data.purchaseMethod,
       },
     });
+    revalidatePath("/admin");
     return { success: true, consultation };
   } catch (error) {
-    console.error('Error creating consultation:', error);
-    return { success: false, message: 'Something went wrong.' };
+    console.error("Error creating consultation:", error);
+    return { success: false, message: "Something went wrong." };
   }
 }

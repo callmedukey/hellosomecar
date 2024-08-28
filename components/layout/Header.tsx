@@ -3,6 +3,31 @@ import { cn } from "@/lib/utils";
 import talkIcon from "@/public/talk.png";
 import { useState } from "react";
 import Image from "next/image";
+import MobileMenu from "./MobileMenu";
+import Link from "next/link";
+
+export const links = [
+  {
+    name: "회사 소개",
+    href: "/about",
+  },
+  {
+    name: "베스트 차량",
+    href: "/best",
+  },
+  {
+    name: "진행절차",
+    href: "/process",
+  },
+  {
+    name: "구매후기",
+    href: "/review",
+  },
+  {
+    name: "문의하기",
+    href: "/contact",
+  },
+];
 
 const Header = () => {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
@@ -15,68 +40,64 @@ const Header = () => {
       <div className="max-w-screen-8xl mx-auto px-[1rem] py-[1.5rem] flex items-center justify-between">
         {/* Logo and Submenu Toggle Button */}
         <div className="flex items-center justify-between w-full lg:w-auto">
-          <div className="text-primary font-bold text-size-xl leading-[var(--text-size-xl)]">
+          <Link href="/" className="text-primary font-bold text-size-xl leading-[var(--text-size-xl)]">
             HELLO썸카
-          </div>
+          </Link>
 
           {/* Submenu Toggle Button (Only on mobile) */}
-          <button
-            onClick={toggleSubmenu}
-            className="lg:hidden ml-auto mr-0 text-gray-600 focus:outline-none"
-          >
-            <svg
-              className="w-[2rem] h-[2rem]"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
+          <MobileMenu />
         </div>
 
         {/* Navigation Links */}
         <nav
           className={cn(
-            `grid lg:flex flex-row mt-[1rem] sm:mt-0 gap-[1rem] sm:gap-[1.5rem] text-primary-gray text-[1.125rem] sm:text-[1.25rem] font-medium`,
-            isSubmenuOpen ? "grid-cols-2" : "hidden"
+            `lg:flex flex-row mt-[1rem] sm:mt-0 gap-[1rem] sm:gap-[1.5rem] text-primary-gray text-[1.125rem] sm:text-[1.25rem] font-medium hidden`
           )}
         >
-          <a
+          <Link
             href="/about"
             className="hover:text-primary hover:font-bold duration-300 transition-all"
           >
             회사 소개
-          </a>
-          <a
+          </Link>
+          <Link
             href="/best"
             className="hover:text-primary hover:font-bold duration-300 transition-all"
           >
             베스트 차량
-          </a>
-          <a
-            href="/process"
-            className="hover:text-primary hover:font-bold duration-300 transition-all"
-          >
-            진행절차
-          </a>
-          <a
+          </Link>
+          <div className="hover:text-primary hover:font-bold duration-300 transition-all relative group">
+            <Link href="/process">진행절차</Link>
+            <div className="absolute left-1/2 -translate-x-1/2 w-[7rem] hidden group-hover:block">
+              <div className="h-8" />
+              <div className="flex flex-col items-center border border-primary">
+                <Link
+                  href="/process#plan-process"
+                  className="hover:bg-primary hover:text-white duration-300 transition-all w-full text-center py-1"
+                >
+                  할부 조건
+                </Link>
+                <Link
+                  href="/process#payment-process"
+                  className="hover:bg-primary hover:text-white duration-300 transition-all w-full text-center py-1"
+                >
+                  금융 대출 선택
+                </Link>
+              </div>
+            </div>
+          </div>
+          <Link
             href="/review"
             className="hover:text-primary hover:font-bold duration-300 transition-all"
           >
             구매후기
-          </a>
-          <a
+          </Link>
+          <Link
             href="/contact"
             className="hover:text-primary hover:font-bold duration-300 transition-all"
           >
             문의하기
-          </a>
+          </Link>
         </nav>
 
         {/* Contact Info (Hidden on smaller screens) */}

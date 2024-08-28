@@ -1,5 +1,4 @@
 import CallToActionBentley from "@/components/layout/CallToActionBentley";
-import Cushion from "@/components/layout/Cushion";
 import BestCarousel from "@/components/main/best/BestCarousel";
 
 const BestPage = () => {

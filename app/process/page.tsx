@@ -1,5 +1,6 @@
 import QuickConsultationForm from "@/components/form/QuickConsultationForm";
 import Cushion from "@/components/layout/Cushion";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,31 +8,37 @@ const processData = [
   {
     title: "상담신청",
     description: "상담문의 신청 또는 <br /> 상담전화를 통해 전문가 배정",
+    image: "/process-1.png",
   },
   {
     title: "신용&차량조회",
     description:
       "복잡한 서류 절차 없이 <br /> 체계적인 전산화 시스템으로 <br /> 신속정확 조회",
+    image: "/process-2.png",
   },
   {
     title: "차량 매물 확인",
     description:
       "할부 조회한도 확인 후 <br /> 원하는 차량을 차량 전문가와 <br /> 직접확인",
+    image: "/process-3.png",
   },
   {
     title: "계약&서류작업",
     description:
       "최종 결정된 차량으로 <br /> 할부 계약서 및 <br /> 매매 계약서 작성",
+    image: "/process-4.png",
   },
   {
     title: "차량정비&인도",
     description:
       "명의 이전, 보험 업무처리 후 <br /> 차량 엔진오일 교환 등 정비하여 <br /> 당일출고 또는 고객님 댁까지 인도",
+    image: "/process-6.png",
   },
   {
     title: "A/S 사후관리",
     description:
       "차량 구매 후에도 <br /> 보증내역에 있는 A/S 사후관리, <br /> 신용관리 Tip 제공",
+    image: "/process-5.png",
   },
 ];
 
@@ -78,8 +85,36 @@ const ProcessPage = () => {
         헬로썸카의 <span className="text-primary">진행 절차</span>
       </h1>
       <div className="h-2 w-[8.875rem] bg-primary mt-8 mx-auto" />
-
-      <section className="mt-[11.125rem]">
+      <dl
+        className="mt-[11.125rem] grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-[5.5rem] md:gap-y-[12.875rem] gap-y-8 max-w-screen-8xl mx-auto w-full px-4 lg:px-0"
+        id="process"
+      >
+        {processData.map((process, i) => (
+          <div
+            key={process.title}
+            className="flex flex-col items-center justify-center bg-ghost-white rounded-2xl py-[2.125rem] shadow-md"
+          >
+            <div
+              className={cn(
+                "relative w-[10rem] h-[8.75rem]",
+                (i === 2 || i === 3) && "scale-x-75"
+              )}
+            >
+              <Image src={process.image} alt={process.title} fill />
+            </div>
+            <div className="size-8 rounded-full bg-primary my-[2.125rem]"></div>
+            <dt className="text-size-lg font-bold leading-[130%] text-center">
+              STEP {i + 1}. {process.title}
+            </dt>
+            <div className="h-1 w-[3.5rem] bg-primary my-6" />
+            <dd
+              className="text-base leading-[150%] text-center"
+              dangerouslySetInnerHTML={{ __html: process.description }}
+            ></dd>
+          </div>
+        ))}
+      </dl>
+      <section className="mt-[11.125rem] scroll-mt-36" id="payment-process">
         <h2 className="text-size-2xl font-bold leading-[130%] text-center">
           헬로썸카의 진행 절차{" "}
           <span className="text-primary">금융 대출 선택</span>
@@ -168,7 +203,7 @@ const ProcessPage = () => {
           </article>
         </div>
       </section>
-      <section className="pt-[11.875rem] ">
+      <section className="pt-[11.875rem] scroll-mt-36" id="plan-process">
         <h2 className="text-size-2xl font-bold leading-[130%] text-center">
           헬로썸카의 <span className="text-primary">할부 조건</span>
         </h2>

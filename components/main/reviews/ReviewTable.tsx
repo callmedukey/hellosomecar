@@ -8,11 +8,20 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import Link from "next/link";
+import prisma from "@/lib/prisma";
+import { format } from "date-fns";
+const ReviewTable = async ({ currentPage = 1 }: { currentPage?: number }) => {
+  const reviews = await prisma.board.findMany({
+    take: 5,
+    skip: currentPage === 1 ? 0 : (currentPage - 1) * 5,
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 
-const ReviewTable = ({ currentPage = 1 }: { currentPage?: number }) => {
   return (
     <section className=" max-w-screen-8xl mx-auto w-full pb-6">
-      <Table className="">
+      <Table className="scroll-m-60" id="review-table">
         <TableHeader className="">
           <TableRow className="text-lg border-secondary-gray border-t-2 font-medium text-primary-gray bg-transparent">
             <TableHead className="min-w-[200px] ">No</TableHead>
@@ -21,18 +30,37 @@ const ReviewTable = ({ currentPage = 1 }: { currentPage?: number }) => {
           </TableRow>
         </TableHeader>
         <TableBody className="tracking-normal text-secondary-gray text-lg font-bold">
-          <TableRow>
-            <TableCell className="font-medium">1</TableCell>
-            <TableCell className="truncate">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-              bibendum enim eg
-            </TableCell>
-            <TableCell className="text-center">Credit Card</TableCell>
-          </TableRow>
+          {reviews && reviews.length > 0 ? (
+            reviews.map((review) => (
+              <TableRow key={review.id}>
+                <TableCell className="font-medium">{review.id}</TableCell>
+                <TableCell className="truncate">
+                  <a href={review.link} target="_blank">
+                    {review.title}
+                  </a>
+                </TableCell>
+                <TableCell className="text-center">
+                  {format(review.createdAt, "yyyy-MM-dd")}
+                </TableCell>
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={3} className="text-center">
+                게시글이 없습니다.
+              </TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
       <aside className="flex justify-center items-center gap-12 mt-[3.625rem] text-primary-gray">
-        <Link href="/review">
+        <Link
+          href={
+            currentPage === 1
+              ? "/review#review-table"
+              : `/review?page=${currentPage - 1}#review-table`
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -50,7 +78,13 @@ const ReviewTable = ({ currentPage = 1 }: { currentPage?: number }) => {
         </Link>
 
         {currentPage}
-        <Link href="/review">
+        <Link
+          href={
+            currentPage === 9
+              ? `/review?page=${currentPage}#review-table`
+              : `/review?page=${currentPage + 1}#review-table`
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
