@@ -15,9 +15,12 @@ const myFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Hello썸카",
+  title: "HELLO썸카",
   description:
     "저신용으로 인한 중고차 구매가 힘드신가요? 파산/면책/회생/신용불량/한도 부족 ok",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
