@@ -7,7 +7,6 @@ const ReviewPage = () => {
     <main className="pt-[5rem]">
       <ReviewsCard isReviewPage />
       <ReviewTable />
-      <Cushion />
     </main>
   );
 };

@@ -119,7 +119,6 @@ const AboutPage = () => {
         </dl>
       </section>
       <CallToActionBentley />
-      <Cushion />
     </main>
   );
 };

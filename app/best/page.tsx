@@ -12,7 +12,6 @@ const BestPage = () => {
         <BestCarousel />
       </section>
       <CallToActionBentley />
-      <Cushion />
     </main>
   );
 };

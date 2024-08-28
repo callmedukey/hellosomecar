@@ -11,7 +11,6 @@ const ContactPage = () => {
       <section className="mt-[7.5rem] mb-[7rem]">
         <QuickConsultationForm />
       </section>
-      <Cushion />
     </main>
   );
 };
