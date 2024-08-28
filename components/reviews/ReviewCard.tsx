@@ -18,7 +18,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
   stars,
 }) => {
   return (
-    <dl className="xl:w-[27.5rem] lg:w-[25rem] md:w-[20rem] w-screen border border-gray-300 rounded-lg shadow-md p-8 relative">
+    <dl className="xl:w-[27.5rem] lg:w-[25rem] md:w-[20rem] w-[90vw] mx-auto border border-gray-300 rounded-lg shadow-md p-8 relative bg-white">
       <dt className="text-size-lg font-bold mb-[3.25rem] sm:text-xl">
         {title}
       </dt>

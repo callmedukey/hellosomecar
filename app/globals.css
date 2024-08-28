@@ -38,6 +38,7 @@
     --primary-gray: 0 0 53%;
     --secondary-gray: 0 0 70%;
     --tertiary-gray: 0 0 91%;
+    --random-gray: 0 0 58%;
     --ghost-white: 240 100% 99%;
   }
 
@@ -75,6 +76,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  li {
+    @apply pl-2
   }
   .text-size-lg {
     font-size: var(--text-size-lg);
@@ -172,5 +181,33 @@
 
   .about-normal-text {
     @apply sm:text-size-lg text-lg font-medium leading-[130%];
+  }
+
+  .process-option-number {
+    @apply text-lg font-bold leading-[130%] text-primary;
+  }
+
+  .process-option-title {
+    @apply text-[2rem] font-bold leading-[130%] tracking-normal;
+  }
+
+  .process-option-subtitle {
+    @apply font-bold leading-[130%] text-primary-gray tracking-normal;
+  }
+
+  .process-top-container {
+    @apply flex flex-col gap-4 items-center pb-[2.5rem] border-b-2 border-secondary-gray border-dashed;
+  }
+
+  .process-list-item {
+    @apply text-base font-medium leading-[130%] py-[2.5rem] space-y-4 tracking-normal grow;
+  }
+
+  .process-button {
+    @apply bg-primary text-white w-full h-[3rem] flex items-center justify-center hover:bg-primary/80 duration-300 transition-colors font-bold leading-[1rem];
+  }
+
+  .process-article-container {
+    @apply max-w-[27.5rem] w-full border border-tertiary-gray p-10 flex-col flex;
   }
 }

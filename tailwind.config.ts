@@ -28,6 +28,7 @@ const config = {
         "primary-gray": "hsl(var(--primary-gray))",
         "secondary-gray": "hsl(var(--secondary-gray))",
         "tertiary-gray": "hsl(var(--tertiary-gray))",
+        "random-gray": "hsl(var(--random-gray))",
         "ghost-white": "hsl(var(--ghost-white))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -37,7 +37,7 @@ const QuickConsultationForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row rounded-lg mx-auto bg-ghost-white max-w-screen-8xl tracking-normal py-[3.5rem] items-center">
+    <div className="flex flex-col xl:flex-row rounded-lg mx-auto bg-ghost-white max-w-screen-8xl tracking-normal py-[3.5rem] items-center">
       <Image
         src="/silvercar.png"
         alt="Car"
