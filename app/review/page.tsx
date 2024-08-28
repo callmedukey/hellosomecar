@@ -1,7 +1,13 @@
 import ReviewTable from "@/components/main/reviews/ReviewTable";
 import ReviewsCard from "@/components/reviews/ReviewsCard";
 
-const ReviewPage = ({ searchParams }: { searchParams: { page: string } }) => {
+export const dynamic = "force-dynamic";
+
+const ReviewPage = async ({
+  searchParams,
+}: {
+  searchParams: { page: string };
+}) => {
   const pageNumber = searchParams.page;
 
   return (
