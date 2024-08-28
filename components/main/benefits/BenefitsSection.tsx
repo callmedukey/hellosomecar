@@ -21,7 +21,7 @@ const Text = () => {
   return (
     <div className="flex flex-col xl:items-end justify-center xl:justify-normal items-center">
       <h3 className="text-size-2xl font-bold text-right">
-        <span className="text-primary">헬로썸만</span>의 <br />
+        <span className="text-primary">헬로썸카만</span>의 <br />
         특별한 혜택
       </h3>
       <div className="w-[9rem] h-2 bg-primary" />

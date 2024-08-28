@@ -10,7 +10,7 @@ import {
 import { Board } from "@prisma/client";
 import { format } from "date-fns";
 import { Button } from "../ui/button";
-import { deleteConsultation } from "@/app/actions/deleteConsultation";
+import { deleteBoard } from "@/app/actions/deleteBoard";
 interface BoardTableProps {
   boards: Board[];
 }
@@ -20,7 +20,7 @@ const BoardTable: React.FC<BoardTableProps> = ({ boards }) => {
     if (!confirm("정말로 삭제하시겠습니까?")) {
       return;
     }
-    const { success } = await deleteConsultation(id);
+    const { success } = await deleteBoard(id);
     if (success) {
       alert("상담 신청이 삭제되었습니다.");
     } else {

@@ -5,6 +5,7 @@ import prisma from "@/lib/prisma";
 import ContactsTable from "@/components/admin/contactsTable";
 import BoardWrite from "@/components/admin/boardWrite";
 import BoardTable from "@/components/admin/boardTable";
+
 const page = async () => {
   const session = await verifySession();
   if (!session?.isAuth) {
