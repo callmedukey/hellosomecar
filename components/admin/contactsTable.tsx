@@ -32,6 +32,7 @@ const ContactsTable: React.FC<ContactsTableProps> = ({ contacts }) => {
       <TableHeader>
         <TableRow className="">
           <TableHead className="min-w-[100px] font-bold">신청일자</TableHead>
+          <TableHead className="min-w-[100px] font-bold">IP</TableHead>
           <TableHead className="min-w-[100px] font-bold">이름</TableHead>
           <TableHead className="min-w-[100px] font-bold">연락처</TableHead>
           <TableHead className="min-w-[100px] font-bold">차량</TableHead>
@@ -45,6 +46,7 @@ const ContactsTable: React.FC<ContactsTableProps> = ({ contacts }) => {
             <TableCell>
               {format(contact.createdAt, "yyyy-MM-dd HH:mm")}
             </TableCell>
+            <TableCell>{contact.ipAddress}</TableCell>
             <TableCell>{contact.name}</TableCell>
             <TableCell>{contact.phoneNumber}</TableCell>
             <TableCell>{contact.desiredCar}</TableCell>

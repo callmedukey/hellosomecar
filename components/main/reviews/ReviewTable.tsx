@@ -29,7 +29,7 @@ const ReviewTable = async ({ currentPage = 1 }: { currentPage?: number }) => {
             <TableHead className="text-center min-w-[200px] ">작성일</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody className="tracking-normal text-secondary-gray text-lg font-bold">
+        <TableBody className="tracking-normal text-black text-lg font-bold">
           {reviews && reviews.length > 0 ? (
             reviews.map((review) => (
               <TableRow key={review.id}>

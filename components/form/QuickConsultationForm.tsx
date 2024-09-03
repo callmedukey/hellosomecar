@@ -30,9 +30,9 @@ const QuickConsultationForm: React.FC = () => {
     });
 
     if (result.success) {
-      alert("Consultation submitted successfully!");
+      alert("문의가 정상적으로 접수되셨습니다!");
     } else {
-      alert("There was an error submitting the consultation.");
+      alert("문의 접수에 실패하였습니다. 다시 시도해주세요.");
     }
   };
 
