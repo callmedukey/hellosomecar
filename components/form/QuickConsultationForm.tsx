@@ -149,7 +149,7 @@ const QuickConsultationForm: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-secondary-gray text-white h-12 hover:bg-primary-gray transition-colors duration-300 mt-12  font-bold"
+            className="w-full bg-black text-white h-12 hover:bg-black/80 transition-colors duration-300 mt-12 font-bold"
           >
             상담 신청
           </button>

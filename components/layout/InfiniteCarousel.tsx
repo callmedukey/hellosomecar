@@ -19,12 +19,12 @@ const InfiniteCarousel = () => {
   };
 
   return (
-    <section className="relative w-full max-w-screen-8xl mx-auto xl:h-[50vw] max-h-[40rem] overflow-hidden">
-      <Splide options={splideOptions}>
-        <SplideSlide>
+    <section className="relative w-full max-w-screen-8xl mx-auto xl:h-[50vw] max-h-[40rem]">
+      <Splide options={splideOptions} className="">
+        <SplideSlide className="!pl-0">
           <Banner />
         </SplideSlide>
-        <SplideSlide>
+        <SplideSlide className="!pl-0">
           <Banner2 />
         </SplideSlide>
       </Splide>
