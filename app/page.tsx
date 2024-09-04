@@ -2,6 +2,8 @@ import QuickConsultationForm from "@/components/form/QuickConsultationForm";
 import Cushion from "@/components/layout/Cushion";
 import InfiniteCarousel from "@/components/layout/InfiniteCarousel";
 import BenefitsSection from "@/components/main/benefits/BenefitsSection";
+import BestCarousel from "@/components/main/best/BestCarousel";
+import PlanProcess from "@/components/main/process/PlanProcess";
 import ReviewsCard from "@/components/reviews/ReviewsCard";
 
 export default function Home() {
@@ -20,7 +22,11 @@ export default function Home() {
       <section className="xl:pt-[188px]">
         <BenefitsSection />
       </section>
-      <ReviewsCard isReviewPage={false} />
+      <ReviewsCard isReviewPage={false} isMain />
+      <section className="mt-[9.75rem] mb-[19.125rem]">
+        <BestCarousel />
+        <PlanProcess main />
+      </section>
       <Cushion />
     </main>
   );

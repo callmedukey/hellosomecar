@@ -5,7 +5,13 @@ import "@splidejs/react-splide/css/core";
 import ReviewCard from "./ReviewCard";
 import { cn } from "@/lib/utils";
 
-const ReviewsCard = ({ isReviewPage }: { isReviewPage: boolean }) => {
+const ReviewsCard = ({
+  isReviewPage,
+  isMain = false,
+}: {
+  isReviewPage: boolean;
+  isMain?: boolean;
+}) => {
   const splideOptions = {
     type: "loop", // Loop back to the beginning when reaching the end
     perPage: 1, // Number of items visible per page
@@ -91,7 +97,8 @@ const ReviewsCard = ({ isReviewPage }: { isReviewPage: boolean }) => {
       className={cn(
         "flex flex-col items-center bg-white",
         !isReviewPage && "py-8 justify-center",
-        isReviewPage && "pb-[7.875rem]"
+        isReviewPage && "pb-[7.875rem]",
+        isMain && "mt-24"
       )}
     >
       {isReviewPage ? (

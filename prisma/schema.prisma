@@ -13,7 +13,7 @@ model Consultation {
   phoneNumber    String
   desiredCar     String
   purchaseMethod String
-  ipAddress      String
+  ipAddress      String?
   createdAt      DateTime @default(now())
 }
 

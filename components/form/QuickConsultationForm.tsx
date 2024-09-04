@@ -66,7 +66,6 @@ const QuickConsultationForm: React.FC = () => {
             <input
               type="text"
               name="name"
-              placeholder="이름을 입력해 주세요"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="mt-1 md:mt-0 block flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
@@ -84,7 +83,6 @@ const QuickConsultationForm: React.FC = () => {
               name="phoneNumber"
               value={phoneNumber}
               onChange={handlePhoneNumberChange}
-              placeholder="010-5555-4444"
               className="mt-1 md:mt-0 block flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
               maxLength={13}
             />
@@ -99,7 +97,6 @@ const QuickConsultationForm: React.FC = () => {
             <input
               type="text"
               name="desiredCar"
-              placeholder="희망 차량을 입력해 주세요"
               value={desiredCar}
               onChange={(e) => setDesiredCar(e.target.value)}
               className="mt-1 md:mt-0 block flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary "
