@@ -36,10 +36,10 @@ export async function submitConsultation(data: {
         process.env.SOLAPI_API_SECRET as string
       );
 
-      const res = await solapi.sendOne({
+       await solapi.sendOne({
         to: data.phoneNumber.replaceAll("-", "").replaceAll(" ", ""),
         from: process.env.SOLAPI_SENDER_PHONE_NUMBER as string,
-        text: `고객님의 문의는 정상적으로 접수 되셨습니다.`,
+        text: `${data.desiredCar} 문의가 접수되었습니다`,
       });
       revalidatePath("/admin");
       return { success: true, consultation };
