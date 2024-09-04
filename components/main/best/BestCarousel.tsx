@@ -5,41 +5,36 @@ import "@splidejs/react-splide/css/core";
 import BestCarCard from "./BestCarCard";
 
 const bestCarData = [
-  {
-    model: "제네시스 G80",
-    leftText: "월 할부 금액",
-    cost: "59만원",
-    duration: "최장 72개월",
-    image: "/genesis.png",
-  },
-  {
-    model: "제네시스 G80",
-    leftText: "월 할부 금액",
-    cost: "59만원",
-    duration: "최장 72개월",
-    image: "/genesis.png",
-  },
-  {
-    model: "제네시스 G80",
-    leftText: "월 할부 금액",
-    cost: "59만원",
-    duration: "최장 72개월",
-    image: "/genesis.png",
-  },
-  {
-    model: "제네시스 G80",
-    leftText: "월 할부 금액",
-    cost: "59만원",
-    duration: "최장 72개월",
-    image: "/genesis.png",
-  },
-  {
-    model: "제네시스 G80",
-    leftText: "월 할부 금액",
-    cost: "59만원",
-    duration: "최장 72개월",
-    image: "/genesis.png",
-  },
+  "/cars/0.webp",
+  "/cars/1.webp",
+  "/cars/2.webp",
+  "/cars/3.webp",
+  "/cars/4.webp",
+  "/cars/5.webp",
+  "/cars/6.webp",
+  "/cars/7.webp",
+  "/cars/8.webp",
+  "/cars/9.webp",
+  "/cars/10.webp",
+  "/cars/11.webp",
+  "/cars/12.webp",
+  "/cars/13.webp",
+  "/cars/14.webp",
+  "/cars/15.webp",
+  "/cars/16.webp",
+  "/cars/17.webp",
+  "/cars/18.webp",
+  "/cars/19.webp",
+  "/cars/20.webp",
+  "/cars/21.webp",
+  "/cars/22.webp",
+  "/cars/23.webp",
+  "/cars/24.webp",
+  "/cars/25.webp",
+  "/cars/26.webp",
+  "/cars/27.webp",
+  "/cars/28.webp",
+  "/cars/29.webp",
 ];
 const BestCarousel = () => {
   const splideOptions1 = {
@@ -80,7 +75,7 @@ const BestCarousel = () => {
     arrows: false,
     mediaQuery: "min",
     breakpoints: {
-      500: {
+      600: {
         perPage: 2,
         perMove: 1,
       },
@@ -100,14 +95,14 @@ const BestCarousel = () => {
       <Splide options={splideOptions1}>
         {bestCarData.map((data, i) => (
           <SplideSlide key={i}>
-            <BestCarCard {...data} i={i} />
+            <BestCarCard src={data} i={i} />
           </SplideSlide>
         ))}
       </Splide>
       <Splide options={splideOptions2}>
-        {bestCarData.map((data, i) => (
+        {bestCarData.reverse().map((data, i) => (
           <SplideSlide key={i}>
-            <BestCarCard {...data} i={i} />
+            <BestCarCard src={data} i={i} />
           </SplideSlide>
         ))}
       </Splide>
