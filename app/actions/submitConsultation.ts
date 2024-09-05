@@ -1,5 +1,5 @@
 "use server";
-
+import { z } from "zod";
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
@@ -20,12 +20,23 @@ export async function submitConsultation(data: {
       throw new Error("IP address not found.");
     }
 
+    const { success, data: parsedData } = z.object({
+      name: z.string().trim(),
+      phoneNumber: z.string().trim(),
+      desiredCar: z.string().trim(),
+      purchaseMethod: z.string().trim(),
+    }).safeParse(data);
+
+    if (!success) {
+      return { success: false, message: "입력 형식이 올바르지 않습니다." };
+    }
+
     const consultation = await prisma.consultation.create({
       data: {
-        name: data.name,
-        phoneNumber: data.phoneNumber,
-        desiredCar: data.desiredCar,
-        purchaseMethod: data.purchaseMethod,
+        name: parsedData.name,
+        phoneNumber: parsedData.phoneNumber,
+        desiredCar: parsedData.desiredCar,
+        purchaseMethod: parsedData.purchaseMethod,
         ipAddress: ipAddress,
       },
     });
@@ -36,8 +47,8 @@ export async function submitConsultation(data: {
         process.env.SOLAPI_API_SECRET as string
       );
 
-       await solapi.sendOne({
-        to: data.phoneNumber.replaceAll("-", "").replaceAll(" ", ""),
+      await solapi.sendOne({
+        to: process.env.SOLAPI_SENDER_PHONE_NUMBER as string,
         from: process.env.SOLAPI_SENDER_PHONE_NUMBER as string,
         text: `${data.desiredCar} 문의가 접수되었습니다`,
       });

@@ -2,7 +2,6 @@ import React from "react";
 
 interface ReviewCardProps {
   title: string;
-  subtitle: string;
   content: string;
   date: string;
   reviewer: string;
@@ -11,7 +10,6 @@ interface ReviewCardProps {
 
 const ReviewCard: React.FC<ReviewCardProps> = ({
   title,
-  subtitle,
   content,
   date,
   reviewer,
@@ -19,15 +17,13 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
 }) => {
   return (
     <dl className="xl:w-[27.5rem] lg:w-[25rem] md:w-[20rem] w-[90vw] mx-auto border border-gray-300 rounded-lg shadow-md p-8 relative bg-white">
-      <dt className="text-size-lg font-bold mb-[3.25rem] sm:text-xl">
-        {title}
-      </dt>
+      <dt className="text-size-lg font-bold mb-2 sm:text-xl">{title}</dt>
       <div className="bg-primary w-[9rem] h-1 mb-6" />
-      <p className="font-bold">{subtitle}</p>
       <div className="">
-        <dd className="mb-2 font-medium leading-[130%] line-clamp-3">
-          {content}
-        </dd>
+        <dd
+          className="mb-2 font-medium leading-[130%] h-[10rem]"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
         <div className="flex items-center justify-start mt-2">
           <div className="flex text-yellow-500">
             {Array(stars)

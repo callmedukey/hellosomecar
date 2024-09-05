@@ -2,7 +2,7 @@
 import { useState, FormEvent } from "react";
 import { submitConsultation } from "@/app/actions/submitConsultation";
 import Image from "next/image";
-
+import { z } from "zod";
 const QuickConsultationForm: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [name, setName] = useState("");
@@ -21,6 +21,25 @@ const QuickConsultationForm: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    const { success, data: parsedData } = z
+      .object({
+        name: z.string().trim(),
+        phoneNumber: z.string().trim(),
+        desiredCar: z.string().trim(),
+        purchaseMethod: z.string().trim(),
+      })
+      .safeParse({
+        name,
+        phoneNumber,
+        desiredCar,
+        purchaseMethod,
+      });
+
+    if (!success) {
+      alert("모든 항목을 입력해주세요.");
+      return;
+    }
 
     const result = await submitConsultation({
       name,

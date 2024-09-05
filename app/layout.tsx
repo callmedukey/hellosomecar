@@ -6,6 +6,8 @@ import Header from "@/components/layout/Header";
 import FixedBanner from "@/components/layout/FixedBanner";
 import Cushion from "@/components/layout/Cushion";
 import Footer from "@/components/layout/Footer";
+import FixedKakao from "@/components/layout/FixedKakao";
+import Script from "next/script";
 
 const myFont = localFont({
   src: "./fonts/PretendardVariable.woff2",
@@ -62,6 +64,20 @@ export default function RootLayout({
         <FixedBanner />
         <Footer />
         <Cushion />
+        <FixedKakao />
+        <Script
+          id="smlog-script"
+          dangerouslySetInnerHTML={{
+            __html: `var hpt_info={'_account':'UHPT-28843', '_server': 'a28'};`,
+          }}
+        ></Script>
+        <noscript>
+          <img
+            src="//a28.smlog.co.kr/smart_bda.php?_account=28843"
+            style={{ display: "none", width: 0, height: 0 }}
+          />
+        </noscript>
+        <Script src="//cdn.smlog.co.kr/core/smart.js" />
       </body>
     </html>
   );

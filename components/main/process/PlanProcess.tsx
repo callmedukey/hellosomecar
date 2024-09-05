@@ -55,7 +55,7 @@ const PlanProcess = ({ main = false }: { main?: boolean }) => {
         {processPaymentData1.map((data, i) => (
           <div
             key={data.title}
-            className="relative w-[30.5rem] h-[17.5rem] mx-[-1rem] p-[2.5rem] rounded-2xl overflow-hidden"
+            className="relative xl:w-[30.5rem] h-[17.5rem] mx-[-1rem] p-[2.5rem] rounded-2xl overflow-hidden"
           >
             <Image
               quality={100}
@@ -89,7 +89,7 @@ const PlanProcess = ({ main = false }: { main?: boolean }) => {
         {processPaymentData2.map((data, i) => (
           <div
             key={data.title}
-            className="relative w-[30.5rem] h-[17.5rem] mx-[-1rem] p-[2.5rem] rounded-2xl overflow-hidden"
+            className="relative xl:w-[30.5rem] h-[17.5rem] mx-[-1rem] p-[2.5rem] rounded-2xl overflow-hidden"
           >
             <Image
               quality={100}
