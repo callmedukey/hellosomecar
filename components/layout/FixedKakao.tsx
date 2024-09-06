@@ -5,7 +5,9 @@ const FixedKakao = () => {
   return (
     <div className="fixed bottom-24 right-6 z-10">
       <div className="flex lg:hidden items-center space-x-[0.75rem] text-[1.125rem] lg:text-[1.25rem]">
-        <span className="text-black font-bold">1666-4855</span>
+        <a href="tel:1666-4855" className="text-black font-bold">
+          1666-4855
+        </a>
         <a href="https://open.kakao.com/o/sgykXrKg" target="_blank">
           <Image
             src={talkIcon}

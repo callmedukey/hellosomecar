@@ -3,9 +3,14 @@ import Link from "next/link";
 
 function BestCarCard({ src, i }: { src: string; i: number }) {
   return (
-    <div className="flex flex-col sm:w-[18rem] w-[15rem] mx-auto" key={src}>
-      <div className="relative h-[20rem] sm:w-[18rem] w-[15rem]">
-        <Image src={src} alt={"Best Car Sale + " + i} fill />
+    <div className="flex flex-col mx-auto" key={src}>
+      <div className="relative min-h-[20rem] sm:w-[18rem] min-w-[15rem] mx-auto">
+        <Image
+          src={src}
+          alt={"Best Car Sale + " + i}
+          fill
+          className="object-contain"
+        />
       </div>
       <Link
         href="/contact"

@@ -75,7 +75,7 @@ const BestCarousel = () => {
     arrows: false,
     mediaQuery: "min",
     breakpoints: {
-      600: {
+      500: {
         perPage: 2,
         perMove: 1,
       },

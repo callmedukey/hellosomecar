@@ -23,7 +23,7 @@ export default function Home() {
         <BenefitsSection />
       </section>
       <ReviewsCard isReviewPage={false} isMain />
-      <section className="mt-[9.75rem] mb-[19.125rem]">
+      <section className="mt-[9.75rem]">
         <BestCarousel />
         <PlanProcess main />
       </section>
