@@ -50,7 +50,12 @@ export async function submitConsultation(data: {
       await solapi.sendOne({
         to: process.env.SOLAPI_SENDER_PHONE_NUMBER as string,
         from: process.env.SOLAPI_SENDER_PHONE_NUMBER as string,
-        text: `${data.desiredCar} 문의가 접수되었습니다`,
+        text: `
+        이름: ${data.name}
+        차량: ${data.desiredCar}
+        연락처: ${data.phoneNumber}
+        접수가되었습니다
+        `,
       });
       revalidatePath("/admin");
       return { success: true, consultation };
