@@ -22,6 +22,11 @@ const QuickConsultationForm: React.FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
+    if (!name || !phoneNumber || !desiredCar || !purchaseMethod) {
+      alert("모든 항목을 입력해주세요.");
+      return;
+    }
+
     const { success, data: parsedData } = z
       .object({
         name: z.string().trim(),
@@ -85,6 +90,7 @@ const QuickConsultationForm: React.FC = () => {
             <input
               type="text"
               name="name"
+              required
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="mt-1 md:mt-0 block flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
@@ -100,6 +106,7 @@ const QuickConsultationForm: React.FC = () => {
             <input
               type="text"
               name="phoneNumber"
+              required
               value={phoneNumber}
               onChange={handlePhoneNumberChange}
               className="mt-1 md:mt-0 block flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
@@ -116,6 +123,7 @@ const QuickConsultationForm: React.FC = () => {
             <input
               type="text"
               name="desiredCar"
+              required
               value={desiredCar}
               onChange={(e) => setDesiredCar(e.target.value)}
               className="mt-1 md:mt-0 block flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary "
