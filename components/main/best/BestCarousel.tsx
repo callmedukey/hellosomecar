@@ -43,8 +43,8 @@ const BestCarousel = () => {
     perMove: 1, // Move one item at a time
     pagination: false, // Enable pagination dots
     autoplay: true,
-    interval: 4000,
-    speed: 3500,
+    interval: 2800,
+    speed: 1800,
     arrows: false,
     easing: "ease",
     mediaQuery: "min",
@@ -69,8 +69,8 @@ const BestCarousel = () => {
     perMove: 1, // Move one item at a time
     pagination: false, // Enable pagination dots
     autoplay: true,
-    interval: 4250,
-    speed: 4000,
+    interval: 2975,
+    speed: 2000,
     easing: "ease-in-out",
     arrows: false,
     mediaQuery: "min",

@@ -18,8 +18,8 @@ const ReviewsCard = ({
     perMove: 1, // Move one item at a time
     pagination: false, // Enable pagination dots
     autoplay: true,
-    interval: 5000,
-    speed: 2000,
+    interval: 2800,
+    speed: 1800,
     arrows: false,
     mediaQuery: "min",
     padding: "0%",

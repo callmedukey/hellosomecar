@@ -13,7 +13,7 @@ const InfiniteCarousel = () => {
     rewind: true, // Rewind to start when the end is reached
     pagination: false, // Enable pagination dots
     autoplay: true,
-    interval: 5000,
+    interval: 2975,
     speed: 2000,
     arrows: false,
   };
