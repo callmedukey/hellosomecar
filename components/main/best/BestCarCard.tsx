@@ -9,6 +9,7 @@ function BestCarCard({ src, i }: { src: string; i: number }) {
           src={src}
           alt={"Best Car Sale + " + i}
           fill
+          priority
           className="object-contain"
         />
       </div>

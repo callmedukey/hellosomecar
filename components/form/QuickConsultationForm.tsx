@@ -68,6 +68,7 @@ const QuickConsultationForm: React.FC = () => {
         width={758}
         height={305}
         className="shrink"
+        priority
       />
       <div className="w-full max-w-fit">
         <div className="flex flex-col xl:flex-row xl:items-center mb-4 gap-4">

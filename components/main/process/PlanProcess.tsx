@@ -62,6 +62,7 @@ const PlanProcess = ({ main = false }: { main?: boolean }) => {
               src={data.image}
               alt={data.title}
               fill
+              priority
               className="object-cover -z-10"
             />
             <div className="bg-black/50 absolute inset-0 -z-10" />
