@@ -10,7 +10,10 @@ import {
 import Link from "next/link";
 import prisma from "@/lib/prisma";
 import { format } from "date-fns";
+import { cookies } from "next/headers";
+
 const ReviewTable = async ({ currentPage = 1 }: { currentPage?: number }) => {
+  const cookieStore = cookies();
   const reviews = await prisma.board.findMany({
     take: 5,
     skip: currentPage === 1 ? 0 : (currentPage - 1) * 5,
