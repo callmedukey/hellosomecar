@@ -3,12 +3,13 @@ import { useState, FormEvent } from "react";
 import { submitConsultation } from "@/app/actions/submitConsultation";
 import Image from "next/image";
 import { z } from "zod";
+
 const QuickConsultationForm: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [name, setName] = useState("");
   const [desiredCar, setDesiredCar] = useState("");
   const [purchaseMethod, setPurchaseMethod] = useState("");
-
+  const [referrer, setReferrer] = useState("");
   const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value.replace(/\D/g, "");
     if (value.length > 3 && value.length <= 7) {
@@ -22,7 +23,7 @@ const QuickConsultationForm: React.FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (!name || !phoneNumber || !desiredCar || !purchaseMethod) {
+    if (!name || !phoneNumber || !desiredCar || !purchaseMethod || !referrer) {
       alert("모든 항목을 입력해주세요.");
       return;
     }
@@ -33,12 +34,14 @@ const QuickConsultationForm: React.FC = () => {
         phoneNumber: z.string().trim(),
         desiredCar: z.string().trim(),
         purchaseMethod: z.string().trim(),
+        referrer: z.string().trim(),
       })
       .safeParse({
         name,
         phoneNumber,
         desiredCar,
         purchaseMethod,
+        referrer,
       });
 
     if (!success) {
@@ -51,6 +54,7 @@ const QuickConsultationForm: React.FC = () => {
       phoneNumber,
       desiredCar,
       purchaseMethod,
+      referrer,
     });
 
     if (result.success) {
@@ -130,7 +134,7 @@ const QuickConsultationForm: React.FC = () => {
               className="mt-1 md:mt-0 block flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary "
             />
           </div>
-          <div className="flex flex-col md:flex-row items-center py-4 !border-b-2 border-tertiary-gray">
+          <div className="flex flex-col md:flex-row items-center py-4 border-tertiary-gray">
             <label
               className="block text-sm font-medium text-gray-700 w-full md:w-[6rem]"
               htmlFor="purchaseMethod"
@@ -168,6 +172,96 @@ const QuickConsultationForm: React.FC = () => {
                   className="ml-2 block text-sm font-medium text-gray-700"
                 >
                   비대면 구매
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center py-4 !border-b-2 border-tertiary-gray">
+            <label
+              className="block text-sm font-medium text-gray-700 w-full md:w-[6rem]"
+              htmlFor="referrer"
+            >
+              유입 경로
+            </label>
+            <div className="mt-1 md:mt-0 flex-1 flex space-x-4">
+              <div className="flex items-center">
+                <input
+                  id="facebook"
+                  name="referrer"
+                  type="radio"
+                  className="focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300"
+                  value="페이스북"
+                  onChange={(e) => setReferrer(e.target.value)}
+                />
+                <label
+                  htmlFor="facebook"
+                  className="ml-2 block text-sm font-medium text-gray-700"
+                >
+                  페이스북
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  id="instagram"
+                  name="referrer"
+                  type="radio"
+                  className="focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300"
+                  value="인스타그램"
+                  onChange={(e) => setReferrer(e.target.value)}
+                />
+                <label
+                  htmlFor="instagram"
+                  className="ml-2 block text-sm font-medium text-gray-700"
+                >
+                  인스타그램
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  id="youtube"
+                  name="referrer"
+                  type="radio"
+                  className="focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300"
+                  value="유튜브"
+                  onChange={(e) => setReferrer(e.target.value)}
+                />
+                <label
+                  htmlFor="youtube"
+                  className="ml-2 block text-sm font-medium text-gray-700"
+                >
+                  유튜브
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  id="google"
+                  name="referrer"
+                  type="radio"
+                  className="focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300"
+                  value="구글"
+                  onChange={(e) => setReferrer(e.target.value)}
+                />
+                <label
+                  htmlFor="google"
+                  className="ml-2 block text-sm font-medium text-gray-700"
+                >
+                  구글
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  id="tiktok"
+                  name="referrer"
+                  type="radio"
+                  className="focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300"
+                  value="틱톡"
+                  onChange={(e) => setReferrer(e.target.value)}
+                />
+                <label
+                  htmlFor="tiktok"
+                  className="ml-2 block text-sm font-medium text-gray-700"
+                >
+                  틱톡
                 </label>
               </div>
             </div>

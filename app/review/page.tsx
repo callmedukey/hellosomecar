@@ -12,8 +12,9 @@ const ReviewPage = async ({
 
   return (
     <main className="pt-[5rem]">
-      <ReviewsCard isReviewPage />
-      <ReviewTable currentPage={Number(pageNumber ?? 1)} />
+      <ReviewsCard isReviewPage>
+        <ReviewTable currentPage={Number(pageNumber ?? 1)} />
+      </ReviewsCard>
     </main>
   );
 };

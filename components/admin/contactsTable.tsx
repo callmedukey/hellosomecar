@@ -37,6 +37,7 @@ const ContactsTable: React.FC<ContactsTableProps> = ({ contacts }) => {
           <TableHead className="min-w-[100px] font-bold">연락처</TableHead>
           <TableHead className="min-w-[100px] font-bold">차량</TableHead>
           <TableHead className="min-w-[100px] font-bold">구매 방법</TableHead>
+          <TableHead className="min-w-[100px] font-bold">유입 경로</TableHead>
           <TableHead className="min-w-[50px]"></TableHead>
         </TableRow>
       </TableHeader>
@@ -51,6 +52,7 @@ const ContactsTable: React.FC<ContactsTableProps> = ({ contacts }) => {
             <TableCell>{contact.phoneNumber}</TableCell>
             <TableCell>{contact.desiredCar}</TableCell>
             <TableCell>{contact.purchaseMethod}</TableCell>
+            <TableCell>{contact?.referrer || ""}</TableCell>
             <TableCell>
               <Button onClick={() => handleDelete(contact.id)} variant="ghost">
                 <svg

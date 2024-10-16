@@ -14,6 +14,7 @@ model Consultation {
   desiredCar     String
   purchaseMethod String
   ipAddress      String?
+  referrer       String?
   createdAt      DateTime @default(now())
 }
 

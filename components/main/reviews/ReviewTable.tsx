@@ -23,7 +23,7 @@ const ReviewTable = async ({ currentPage = 1 }: { currentPage?: number }) => {
   });
 
   return (
-    <section className=" max-w-screen-8xl mx-auto w-full pb-6">
+    <section className=" max-w-screen-8xl mx-auto w-full mt-24">
       <Table className="scroll-m-60" id="review-table">
         <TableHeader className="">
           <TableRow className="text-lg border-secondary-gray border-t-2 font-medium text-primary-gray bg-transparent">

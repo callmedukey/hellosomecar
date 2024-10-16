@@ -10,11 +10,11 @@ export async function submitConsultation(data: {
   phoneNumber: string;
   desiredCar: string;
   purchaseMethod: string;
+  referrer: string;
 }) {
   try {
     const headersList = headers();
-    const ipAddress = headersList.get("x-forwarded-for")?.split(",")[0];
-    console.log(headersList.get("x-forwarded-for"));
+    const ipAddress = headersList.get("CF-Connecting-IP")?.split(",")[0];
 
     if (!ipAddress) {
       throw new Error("IP address not found.");
@@ -25,6 +25,7 @@ export async function submitConsultation(data: {
       phoneNumber: z.string().trim(),
       desiredCar: z.string().trim(),
       purchaseMethod: z.string().trim(),
+      referrer: z.string().trim(),
     }).safeParse(data);
 
     if (!success) {
@@ -38,6 +39,7 @@ export async function submitConsultation(data: {
         desiredCar: parsedData.desiredCar,
         purchaseMethod: parsedData.purchaseMethod,
         ipAddress: ipAddress,
+        referrer: parsedData.referrer,
       },
     });
 

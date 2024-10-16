@@ -8,6 +8,7 @@ import Cushion from "@/components/layout/Cushion";
 import Footer from "@/components/layout/Footer";
 import FixedKakao from "@/components/layout/FixedKakao";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const myFont = localFont({
   src: "./fonts/PretendardVariable.woff2",
@@ -65,16 +66,41 @@ export default function RootLayout({
         <Footer />
         <Cushion />
         <FixedKakao />
+        <GoogleAnalytics gaId="G-W6168CPBXB" />
         <Script
           id="smlog-script"
           dangerouslySetInnerHTML={{
             __html: `var hpt_info={'_account':'UHPT-28843', '_server': 'a28'};`,
           }}
         ></Script>
+        <Script
+          id="meta-script"
+          dangerouslySetInnerHTML={{
+            __html: `!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '8095756323861752');
+fbq('track', 'PageView');
+`,
+          }}
+        ></Script>
         <noscript>
           <img
             src="//a28.smlog.co.kr/smart_bda.php?_account=28843"
             style={{ display: "none", width: 0, height: 0 }}
+          />
+        </noscript>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=8095756323861752&ev=PageView&noscript=1"
           />
         </noscript>
         <Script src="//cdn.smlog.co.kr/core/smart.js" />

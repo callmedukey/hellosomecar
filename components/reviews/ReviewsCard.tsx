@@ -4,13 +4,18 @@ import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/core";
 import ReviewCard from "./ReviewCard";
 import { cn } from "@/lib/utils";
+import ReviewTable from "../main/reviews/ReviewTable";
 
 const ReviewsCard = ({
   isReviewPage,
   isMain = false,
+
+  children,
 }: {
   isReviewPage: boolean;
   isMain?: boolean;
+
+  children?: React.ReactNode;
 }) => {
   const splideOptions = {
     type: "loop", // Loop back to the beginning when reaching the end
@@ -159,6 +164,8 @@ const ReviewsCard = ({
         </h4>
       )}
       <div className="mx-auto my-8 w-[8.875rem] h-2 bg-primary"></div>
+
+      {isReviewPage && children}
       <div
         className={cn("relative w-full z-10", isReviewPage && "mt-[9.625rem]")}
       >
