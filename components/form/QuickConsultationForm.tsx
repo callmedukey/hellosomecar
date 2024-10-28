@@ -250,18 +250,18 @@ const QuickConsultationForm: React.FC = () => {
               </div>
               <div className="flex items-center">
                 <input
-                  id="tiktok"
+                  id="naver"
                   name="referrer"
                   type="radio"
                   className="focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300"
-                  value="틱톡"
+                  value="네이버"
                   onChange={(e) => setReferrer(e.target.value)}
                 />
                 <label
-                  htmlFor="tiktok"
+                  htmlFor="naver"
                   className="ml-2 block text-sm font-medium text-gray-700"
                 >
-                  틱톡
+                  네이버
                 </label>
               </div>
             </div>
